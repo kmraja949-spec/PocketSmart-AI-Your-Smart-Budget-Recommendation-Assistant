@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PocketSmart AI</title>
+    <style>
+        body { font-family: sans-serif; background: #f3f4f6; margin:0; padding:0; color:#1f2937; }
+        header { background:#1e3a8a; color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; }
+        header h1 { margin:0; font-size:22px; }
+        nav a { color:white; margin-left:15px; text-decoration:none; font-weight:bold; }
+        .container { max-width:800px; margin:40px auto; background:white; padding:30px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+        .btn { background:#2563eb; color:white; padding:10px 20px; border:none; border-radius:4px; text-decoration:none; cursor:pointer; font-weight:bold; display:inline-block; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PocketSmart AI</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/testimonials">Testimonials</a>
+            {% if user %}
+                <a href="/planner">Dashboard</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+    <div class="container" style="text-align:center;">
+        <h2>AI-Driven Modular Budget Optimization Engine</h2>
+        <p>Process your home interior configurations, dynamic party logistics, and accessory coordination setups with Gemini 1.5 Flash Pro capability patterns.</p>
+        {% if user %}
+            <a href="/planner" class="btn">Enter Control Panel Dashboard</a>
+        {% else %}
+            <a href="/login" class="btn">Access Application</a>
+        {% endif %}
+    </div>
+</body>
+</html>

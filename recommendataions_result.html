@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Output Matrix</title>
+    <style>
+        body { font-family: sans-serif; background: #f3f4f6; margin:0; padding:0; color:#1f2937; }
+        .container { max-width:800px; margin:40px auto; background:white; padding:30px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+        table { width:100%; border-collapse:collapse; margin-top:20px; }
+        th, td { border:1px solid #e5e7eb; padding:10px; text-align:left; }
+        th { background:#f9fafb; }
+        .error { background:#fee2e2; color:#b91c1c; padding:10px; border-radius:4px; margin-bottom:15px; }
+        .btn { background:#2563eb; color:white; padding:10px 20px; border:none; border-radius:4px; text-decoration:none; font-weight:bold; display:inline-block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>System Distribution Matrix Report</h2>
+        <p><strong>Configured Track:</strong> {{category.upper()}}</p>
+        {% if result.error %}<div class="error">{{result.error}}</div>{% endif %}
+        <p style="background:#eff6ff; padding:15px; border-left:4px solid #2563eb;">{{result.category_summary}}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Allocation Name</th>
+                    <th>Cost Component</th>
+                    <th>Sourcing Platform</th>
+                    <th>Context Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in result.breakdown %}
+                <tr>
+                    <td><strong>{{i.item}}</strong></td>
+                    <td>INR {{i.cost}}</td>
+                    <td>{{i.platform}}</td>
+                    <td>{{i.reason}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Strategic Recommendations</h3>
+        <ul>{% for s in result.suggestions %}<li>{{s}}</li>{% endfor %}</ul>
+        <br><a href="/planner" class="btn">Return to Control Desk</a>
+    </div>
+</body>
+</html>

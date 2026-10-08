@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body { font-family: sans-serif; background: #f3f4f6; margin:0; padding:0; color:#1f2937; }
+        .container { max-width:400px; margin:100px auto; background:white; padding:30px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom:15px; }
+        .form-group label { display:block; margin-bottom:5px; font-weight:bold; }
+        .form-group input { width:100%; padding:8px; border:1px solid #d1d5db; border-radius:4px; box-sizing:border-box; }
+        .btn { background:#2563eb; color:white; padding:10px 20px; border:none; border-radius:4px; text-decoration:none; cursor:pointer; font-weight:bold; width:100%; }
+        .error { background:#fee2e2; color:#b91c1c; padding:10px; border-radius:4px; margin-bottom:15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Account Workspace</h2>
+        {% if error %}<div class="error">{{error}}</div>{% endif %}
+        <form method="post">
+            <div class="form-group"><label>Username</label><input type="text" name="username" required></div>
+            <div class="form-group"><label>Password</label><input type="password" name="password" required></div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <p style="text-align:center;"><a href="/login">Return to login interface</a></p>
+    </div>
+</body>
+</html>
